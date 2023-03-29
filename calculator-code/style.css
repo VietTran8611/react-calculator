@@ -1,0 +1,120 @@
+:root {
+    --ff--primary: "Rubik", sans-serif;
+    --ff--third: "Lora", serif;
+  
+    --clr--dark: rgba(0,0,0,.85);
+    --clr--light-accent: rgba(0,0,0,.15);
+    --clr--dark--accent: rgba(0,0,0,.35);
+    --clr--accent--dark: rgba(11,127,171,.9);
+    --clr--accent--light:  rgba(11,127,171);
+
+    --fs--h1: 2rem;
+    --fs--h2: 1.5rem;
+    --fs--body: 1rem;
+    --fs--icon: 1.75rem;
+  
+    --fw--reg: 400;
+    --fw--bold: 700;
+  
+    --mouse-x: unset;
+    --mouse-y: unset;
+  }
+  
+  /* general style */
+  
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--ff--primary);
+    font-size: var(--fs--body);
+    line-height: 1.6;
+  }
+  
+  img {
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: -o-crisp-edges; /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+    display: block;
+    max-width: 100%;
+  }
+
+  .cal-grid{
+    display: grid;
+    margin-top: 2em;
+    grid-template-columns: repeat(4,6rem);
+    grid-template-rows: minmax(7rem,auto) repeat(5, 4rem);
+    background-color: var(--clr--dark);
+    width: max-content;
+    grid-gap: 3px;
+    margin: 5em auto;
+  }
+
+  .span-two{
+    grid-column: span 2;
+  }
+
+  .output{
+    grid-column: 1/-1;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  .current-out{
+    font-size: var(--fs--h1);
+  }
+
+  .prev-out{
+    font-size: var(--fs--h2);
+  }
+
+  .cal-grid > button{
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+
+  .opt{
+    background-color: var(--clr--dark--accent);
+    color: white;
+  }
+
+  .opt:hover{
+    background-color: var(--clr--light-accent);
+  }
+
+  .digit{
+    background-color: var(--clr--light-accent);
+    color: white;
+  }
+
+  .digit:hover{
+    background-color: var(--clr--dark--accent);
+  }
+
+  .equal{
+    background-color: var(--clr--accent--dark);
+    color: rgb(20, 11, 11);
+    font-size: var(--fs--h1);
+    font-weight: 400;
+  }
+
+  .equal:hover{
+    background-color: var(--clr--accent--light);
+  }
