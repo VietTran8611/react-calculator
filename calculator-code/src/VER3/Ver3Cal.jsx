@@ -7,7 +7,7 @@ import { useReducer, useState } from 'react'
 export const ACTIONS ={
     ENTER_DIGIT: "enter-digit",
     C: 'clear',
-    DELETE_DIGIT: 'delete-digit',
+    CE: 'delete-digit',
     CHOOSE_OPT: 'choose-operation',
     EVALUATE : 'evaluate',
     OPEN_BRACH: 'open',
@@ -108,17 +108,11 @@ function reducer(state,{type, payload}){
                 overwrite:true,
                 currentOperand: '0', bracket: true, currentOperandBracket: '0',
             }
-        case ACTIONS.DELETE_DIGIT:
-            if(state.currentOperand === "0")return state
-            if(state.currentOperand.length == 1) return{
-                ...state,
-                currentOperand: 0
-            }
-
-            return{
-                ...state,
-                currentOperand: state.currentOperand.substring(0, state.currentOperand.length -1)
-            }
+            case ACTIONS.CE:
+                return{
+                    ...state,
+                    currentOperand: `0`
+                }
         case ACTIONS.OPEN_BRACH:
             if(!state.bracket) return state
             if(state.fullEqu)return{
@@ -177,7 +171,7 @@ export default function Ver3Cal(){
                 <OptBtn bracket={bracket} dispatch={dispatch} opt={"+"} />
                 <DigitBtn dispatch={dispatch} digit={"."} />
                 <DigitBtn dispatch={dispatch} digit={'0'} />
-                <button onClick={()=>{dispatch({type: ACTIONS.DELETE_DIGIT})}} className='opt'><FontAwesomeIcon icon={faDeleteLeft}></FontAwesomeIcon></button>
+                <button onClick={()=>{dispatch({type: ACTIONS.CE})}} className='opt'>CE</button>
                 <button onClick={()=>{dispatch({type: ACTIONS.EVALUATE});setFinal(eval(`${fullEqu} ${currentOperand}`))}} className=' equal' >=</button>
             </div>
         </main>
